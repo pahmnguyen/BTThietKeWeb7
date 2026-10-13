@@ -1,0 +1,53 @@
+
+/* 1. Cuộn trang mượt */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 2. Cài đặt font chữ */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* 3. Banner giới thiệu */
+.banner {
+    background: linear-gradient(120deg, #1d4ed8, #60a5fa);
+}
+
+/* 4. Hiệu ứng thẻ sản phẩm */
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* 5. Ảnh sản phẩm */
+.product-card img {
+    display: block;
+    object-fit: cover;
+}
+
+/* 6. Ô nhập liệu không bị tràn chiều rộng */
+input {
+    box-sizing: border-box;
+}
+
+/* 7. Hiệu ứng cho các sản phẩm trong giỏ */
+.cart-item {
+    transition: background-color 0.2s ease;
+}
+
+.cart-item:hover {
+    background-color: #f9fafb;
+}
+
+/* 8. Điều chỉnh trên điện thoại */
+@media (max-width: 640px) {
+    .banner h1 {
+        line-height: 1.2;
+    }
+}

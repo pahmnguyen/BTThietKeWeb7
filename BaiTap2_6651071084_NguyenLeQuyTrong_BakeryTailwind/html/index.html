@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sweet Bakery - Tiệm bánh ngọt thủ công, thơm ngon mỗi ngày">
+    <title>Sweet Bakery - Tiệm bánh ngọt</title>
+
+    <!-- Nhúng Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- CSS tự viết -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-amber-50 text-stone-800">
+
+    <!-- HEADER: Thanh điều hướng -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+            <a href="#trangchu" class="text-2xl font-bold text-amber-700">
+                Sweet Bakery
+            </a>
+
+            <!-- Menu trên máy tính -->
+            <nav id="menuDesktop" class="hidden md:flex gap-6 font-medium">
+                <a href="#trangchu" class="hover:text-amber-700">Trang chủ</a>
+                <a href="#menu" class="hover:text-amber-700">Menu bánh</a>
+                <a href="#cauchuyen" class="hover:text-amber-700">Về chúng tôi</a>
+                <a href="#datbanh" class="hover:text-amber-700">Đặt bánh</a>
+                <a href="#lienhe" class="hover:text-amber-700">Liên hệ</a>
+            </nav>
+
+            <!-- Nút hamburger trên điện thoại -->
+            <button id="menuButton"
+                class="md:hidden text-3xl text-amber-800"
+                aria-label="Mở menu"
+                aria-expanded="false">
+                ☰
+            </button>
+        </div>
+
+        <!-- Menu trên điện thoại -->
+        <nav id="mobileMenu" class="hidden flex-col bg-white px-6 pb-4 gap-4 md:hidden">
+            <a href="#trangchu" class="mobile-link hover:text-amber-700">Trang chủ</a>
+            <a href="#menu" class="mobile-link hover:text-amber-700">Menu bánh</a>
+            <a href="#cauchuyen" class="mobile-link hover:text-amber-700">Về chúng tôi</a>
+            <a href="#datbanh" class="mobile-link hover:text-amber-700">Đặt bánh</a>
+            <a href="#lienhe" class="mobile-link hover:text-amber-700">Liên hệ</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO: Banner giới thiệu -->
+        <section id="trangchu" class="max-w-7xl mx-auto px-6 py-16">
+            <div class="flex flex-col md:flex-row items-center gap-10">
+
+                <div class="md:w-1/2">
+                    <p class="text-amber-700 font-semibold mb-3">
+                        BÁNH NGỌT THỦ CÔNG
+                    </p>
+
+                    <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
+                        Ngọt ngào trong từng khoảnh khắc
+                    </h1>
+
+                    <p class="text-stone-600 text-lg mb-8">
+                        Những chiếc bánh thơm ngon được làm từ nguyên liệu
+                        chọn lọc, mang đến niềm vui và hương vị ngọt ngào
+                        cho mỗi ngày của bạn.
+                    </p>
+
+                    <a href="#menu"
+                        class="inline-block bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-full transition">
+                        Khám phá menu
+                    </a>
+                </div>
+
+                <div class="md:w-1/2">
+                    <img
+                        src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=80"
+                        alt="Bánh kem ngọt"
+                        class="w-full h-80 md:h-96 object-cover rounded-3xl shadow-xl">
+                </div>
+
+            </div>
+        </section>
+
+        <!--
+        So sánh: Ở bài này, mỗi card được tự thiết kế bằng các utility class
+        của Tailwind như rounded-2xl, shadow-lg, p-4 và hover:shadow-xl.
+        Khác với Bootstrap, bài này không sử dụng Card component dựng sẵn.
+        -->
+
+        <!-- SECTION: Menu bánh -->
+        <section id="menu" class="bg-white py-16 px-6">
+            <div class="max-w-7xl mx-auto">
+
+                <div class="text-center mb-12">
+                    <p class="text-amber-700 font-semibold mb-2">HƯƠNG VỊ ĐẶC BIỆT</p>
+                    <h2 class="text-3xl md:text-4xl font-bold">Menu bánh của chúng tôi</h2>
+                    <p class="text-stone-500 mt-3">Được làm mới mỗi ngày bằng cả sự tận tâm.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    <!-- Bánh 1 -->
+                    <article class="cake-card bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition">
+                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80"
+                            alt="Bánh kem dâu" class="w-full h-56 object-cover">
+                        <div class="p-5">
+                            <h3 class="text-xl font-bold mb-2">Bánh kem dâu</h3>
+                            <p class="text-stone-600 mb-4">Kem tươi mềm mịn kết hợp dâu tây ngọt dịu.</p>
+                            <p class="text-amber-700 font-bold text-lg">250.000đ</p>
+                        </div>
+                    </article>
+
+                    <!-- Bánh 2 -->
+                    <article class="cake-card bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition">
+                        <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=700&q=80"
+                            alt="Bánh chocolate" class="w-full h-56 object-cover">
+                        <div class="p-5">
+                            <h3 class="text-xl font-bold mb-2">Bánh chocolate</h3>
+                            <p class="text-stone-600 mb-4">Vị chocolate đậm đà dành cho người yêu đồ ngọt.</p>
+                            <p class="text-amber-700 font-bold text-lg">180.000đ</p>
+                        </div>
+                    </article>
+
+                    <!-- Bánh 3 -->
+                    <article class="cake-card bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition">
+                        <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=700&q=80"
+                            alt="Bánh cupcake" class="w-full h-56 object-cover">
+                        <div class="p-5">
+                            <h3 class="text-xl font-bold mb-2">Cupcake</h3>
+                            <p class="text-stone-600 mb-4">Những chiếc bánh nhỏ xinh với lớp kem mềm thơm.</p>
+                            <p class="text-amber-700 font-bold text-lg">35.000đ</p>
+                        </div>
+                    </article>
+
+                    <!-- Bánh 4 -->
+                    <article class="cake-card bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition">
+                        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=700&q=80"
+                            alt="Bánh sừng bò" class="w-full h-56 object-cover">
+                        <div class="p-5">
+                            <h3 class="text-xl font-bold mb-2">Bánh sừng bò</h3>
+                            <p class="text-stone-600 mb-4">Vỏ bánh giòn xốp, thơm mùi bơ đặc trưng.</p>
+                            <p class="text-amber-700 font-bold text-lg">40.000đ</p>
+                        </div>
+                    </article>
+
+                    <!-- Bánh 5 -->
+                    <article class="cake-card bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition">
+                        <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=700&q=80"
+                            alt="Bánh macaron" class="w-full h-56 object-cover">
+                        <div class="p-5">
+                            <h3 class="text-xl font-bold mb-2">Macaron</h3>
+                            <p class="text-stone-600 mb-4">Bánh Pháp nhiều màu sắc, ngọt dịu và tinh tế.</p>
+                            <p class="text-amber-700 font-bold text-lg">25.000đ</p>
+                        </div>
+                    </article>
+
+                    <!-- Bánh 6 -->
+                    <article class="cake-card bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition">
+                        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=700&q=80"
+                            alt="Bánh mì ngọt" class="w-full h-56 object-cover">
+                        <div class="p-5">
+                            <h3 class="text-xl font-bold mb-2">Bánh mì ngọt</h3>
+                            <p class="text-stone-600 mb-4">Bánh mềm thơm, thích hợp cho bữa sáng nhẹ nhàng.</p>
+                            <p class="text-amber-700 font-bold text-lg">30.000đ</p>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: Câu chuyện thương hiệu -->
+        <section id="cauchuyen" class="max-w-7xl mx-auto px-6 py-16">
+            <div class="flex flex-col md:flex-row items-center gap-10">
+
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1556217477-d325251ece38?auto=format&fit=crop&w=900&q=80"
+                        alt="Không gian làm bánh"
+                        class="w-full h-80 object-cover rounded-3xl shadow-lg">
+                </div>
+
+                <div class="md:w-1/2">
+                    <p class="text-amber-700 font-semibold mb-3">CÂU CHUYỆN CỦA CHÚNG TÔI</p>
+
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                        Bắt đầu từ tình yêu với những chiếc bánh
+                    </h2>
+
+                    <p class="text-stone-600 leading-7 mb-4">
+                        Sweet Bakery được tạo nên từ niềm yêu thích làm bánh
+                        và mong muốn mang đến những món tráng miệng thật
+                        đặc biệt cho mọi người.
+                    </p>
+
+                    <p class="text-stone-600 leading-7">
+                        Chúng tôi luôn đặt chất lượng lên hàng đầu, lựa chọn
+                        nguyên liệu cẩn thận và chăm chút từng sản phẩm bằng
+                        <strong class="text-amber-700 font-semibold">sự tận tâm</strong>
+                        để mỗi chiếc bánh đều mang một
+                        <em class="text-amber-700 font-semibold">hương vị đáng nhớ</em>.
+                    </p>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: Đặt bánh và ASIDE -->
+        <section id="datbanh" class="bg-white py-16 px-6">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+                <!-- Nội dung chính: Form đặt bánh -->
+                <div class="lg:col-span-2">
+                    <h2 class="text-3xl font-bold mb-3">Đặt bánh theo yêu cầu</h2>
+                    <p class="text-stone-600 mb-8">
+                        Điền thông tin để chúng tôi liên hệ và tư vấn mẫu bánh phù hợp.
+                    </p>
+
+                    <form id="orderForm" class="space-y-5">
+
+                        <div>
+                            <label for="hoTen" class="block font-medium mb-2">Họ và tên</label>
+                            <input type="text" id="hoTen" name="hoTen"
+                                placeholder="Nhập họ tên của bạn"
+                                class="w-full border border-stone-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                                required>
+                        </div>
+
+                        <div>
+                            <label for="soDienThoai" class="block font-medium mb-2">Số điện thoại</label>
+                            <input type="tel" id="soDienThoai" name="soDienThoai"
+                                placeholder="Nhập số điện thoại"
+                                class="w-full border border-stone-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                                required>
+                        </div>
+
+                        <div>
+                            <label for="loaiBanh" class="block font-medium mb-2">Loại bánh muốn đặt</label>
+                            <select id="loaiBanh" name="loaiBanh"
+                                class="w-full border border-stone-300 rounded-lg px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-amber-500"
+                                required>
+                                <option value="">-- Chọn loại bánh --</option>
+                                <option>Bánh kem dâu</option>
+                                <option>Bánh chocolate</option>
+                                <option>Cupcake</option>
+                                <option>Bánh sừng bò</option>
+                                <option>Macaron</option>
+                                <option>Bánh mì ngọt</option>
+                                <option>Bánh thiết kế theo yêu cầu</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="yeuCau" class="block font-medium mb-2">Yêu cầu thêm</label>
+                            <textarea id="yeuCau" name="yeuCau" rows="4"
+                                placeholder="Ví dụ: kích thước, lời chúc, ngày nhận bánh..."
+                                class="w-full border border-stone-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-500"></textarea>
+                        </div>
+
+                        <button type="submit"
+                            class="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-full transition">
+                            Gửi yêu cầu
+                        </button>
+
+                        <p id="formMessage" class="text-green-700 font-medium" role="status"></p>
+                    </form>
+                </div>
+
+                <!-- ASIDE: Ưu đãi -->
+                <aside class="bg-amber-50 border border-amber-200 rounded-xl p-6 h-fit">
+                    <p class="text-amber-700 font-bold mb-3">ƯU ĐÃI ĐẶC BIỆT</p>
+
+                    <h3 class="text-2xl font-bold mb-4">
+                        Ngọt ngào hơn, tiết kiệm hơn!
+                    </h3>
+
+                    <p class="text-stone-600 mb-5">
+                        Khách hàng mới được giảm 10% cho đơn hàng đầu tiên.
+                    </p>
+
+                    <div class="bg-amber-100 text-amber-800 rounded-lg p-4 mb-5">
+                        <p class="font-bold text-lg">GIẢM 10%</p>
+                        <p class="text-sm">Áp dụng cho khách hàng mới.</p>
+                    </div>
+
+                    <a href="#orderForm"
+                        class="inline-block bg-amber-600 hover:bg-amber-700 text-white px-5 py-3 rounded-full transition">
+                        Đặt bánh ngay
+                    </a>
+                </aside>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="lienhe" class="bg-stone-900 text-stone-200 py-12 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+
+            <div>
+                <h3 class="text-xl font-bold text-amber-400 mb-4">Sweet Bakery</h3>
+                <p class="text-sm leading-6">
+                    Trao gửi yêu thương qua từng chiếc bánh ngọt thủ công.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="font-bold text-white mb-4">Liên hệ</h3>
+                <p class="text-sm mb-2">Địa chỉ: TP. Hồ Chí Minh</p>
+                <p class="text-sm mb-2">Điện thoại: 0900 123 456</p>
+                <p class="text-sm">Email: sweetbakery@example.com</p>
+            </div>
+
+            <div>
+                <h3 class="font-bold text-white mb-4">Giờ mở cửa</h3>
+                <p class="text-sm mb-2">Thứ 2 - Thứ 6: 07:00 - 21:00</p>
+                <p class="text-sm">Thứ 7 - Chủ nhật: 08:00 - 22:00</p>
+            </div>
+
+            <div>
+                <h3 class="font-bold text-white mb-4">Mạng xã hội</h3>
+                <p class="text-sm mb-2">Facebook: Sweet Bakery</p>
+                <p class="text-sm mb-2">Instagram: @sweetbakery</p>
+                <p class="text-sm">TikTok: @sweetbakery</p>
+            </div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto border-t border-stone-700 mt-8 pt-6 text-center text-sm">
+            © 2026 Sweet Bakery. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Nút lên đầu trang -->
+    <button id="backToTop"
+        class="hidden fixed bottom-6 right-6 bg-amber-600 hover:bg-amber-700 text-white w-12 h-12 rounded-full shadow-lg"
+        aria-label="Lên đầu trang">
+        ↑
+    </button>
+
+    <!-- Nhúng JavaScript -->
+    <script src="../js/script.js"></script>
+</body>
+</html>

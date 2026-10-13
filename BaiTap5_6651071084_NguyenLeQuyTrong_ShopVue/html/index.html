@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tam Phone - Shop phụ kiện điện thoại chất lượng">
+    <title>Tam Phone - Phụ kiện điện thoại</title>
+
+    <!-- Nhúng Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Nhúng CSS tự viết -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Toàn bộ giao diện Vue nằm trong app -->
+    <div id="app">
+
+        <!-- HEADER -->
+        <header class="bg-white shadow-md sticky top-0 z-50">
+            <div class="max-w-7xl mx-auto px-6 py-4 flex flex-wrap justify-between items-center gap-4">
+
+                <a href="#trangchu" class="text-2xl font-bold text-blue-700">
+                    Tam Phone
+                </a>
+
+                <nav class="flex flex-wrap gap-4 font-medium">
+                    <a href="#trangchu" class="hover:text-blue-600">Trang chủ</a>
+                    <a href="#sanpham" class="hover:text-blue-600">Sản phẩm</a>
+                    <a href="#khuyenmai" class="hover:text-blue-600">Khuyến mãi</a>
+                    <a href="#lienhe" class="hover:text-blue-600">Liên hệ</a>
+                </nav>
+
+                <!-- Vue tự cập nhật số lượng giỏ hàng -->
+                <a href="#giohang"
+                    class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">
+                    🛒 Giỏ hàng ({{ cartCount }})
+                </a>
+
+            </div>
+        </header>
+
+        <main>
+
+            <!-- BANNER -->
+            <section id="trangchu" class="banner text-white py-20 px-6">
+                <div class="max-w-7xl mx-auto">
+                    <p class="font-semibold mb-3">TAM PHONE - PHỤ KIỆN CHÍNH HÃNG</p>
+
+                    <h1 class="text-4xl md:text-5xl font-bold mb-5">
+                        Nâng cấp trải nghiệm điện thoại của bạn
+                    </h1>
+
+                    <p class="text-lg mb-8">
+                        Ốp lưng, tai nghe, sạc và nhiều phụ kiện tiện ích.
+                    </p>
+
+                    <a href="#sanpham"
+                        class="inline-block bg-white text-blue-700 font-bold px-6 py-3 rounded-lg hover:bg-gray-200">
+                        Mua sắm ngay
+                    </a>
+                </div>
+            </section>
+
+            <!-- DANH SÁCH SẢN PHẨM -->
+            <section id="sanpham" class="max-w-7xl mx-auto px-6 py-12">
+
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold mb-3">Sản phẩm nổi bật</h2>
+                    <p class="text-gray-500">
+                        Lựa chọn phụ kiện phù hợp với bạn
+                    </p>
+                </div>
+
+                <!-- Ô TÌM KIẾM: v-model liên kết với tuKhoa -->
+                <div class="max-w-xl mx-auto mb-10">
+                    <input
+                        type="text"
+                        v-model="tuKhoa"
+                        placeholder="Tìm kiếm sản phẩm..."
+                        class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+
+                <!-- Vue tự lặp danh sách sản phẩm -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                    <article
+                        v-for="sanPham in danhSachLoc"
+                        :key="sanPham.id"
+                        class="product-card bg-white rounded-xl shadow-md overflow-hidden">
+
+                        <img
+                            :src="sanPham.anh"
+                            :alt="sanPham.ten"
+                            class="w-full h-48 object-cover"
+                            loading="lazy">
+
+                        <div class="p-4">
+                            <h3 class="text-lg font-bold mb-2">
+                                {{ sanPham.ten }}
+                            </h3>
+
+                            <p class="text-gray-500 text-sm mb-3">
+                                {{ sanPham.moTa }}
+                            </p>
+
+                            <p class="text-blue-700 font-bold text-xl mb-4">
+                                {{ dinhDangTien(sanPham.gia) }}
+                            </p>
+
+                            <button
+                                @click="themVaoGio(sanPham)"
+                                class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg">
+                                Thêm vào giỏ
+                            </button>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- Thông báo nếu không tìm thấy sản phẩm -->
+                <p v-if="danhSachLoc.length === 0"
+                    class="text-center text-gray-500 py-10">
+                    Không tìm thấy sản phẩm phù hợp.
+                </p>
+
+            </section>
+
+            <!-- KHUYẾN MÃI -->
+            <section id="khuyenmai" class="bg-blue-50 px-6 py-12">
+                <div class="max-w-7xl mx-auto text-center">
+                    <h2 class="text-3xl font-bold mb-4">
+                        🎉 Khuyến mãi hôm nay
+                    </h2>
+
+                    <p class="text-lg mb-3">
+                        Giảm đến 20% cho một số phụ kiện được chọn.
+                    </p>
+
+                    <p class="text-gray-600">
+                        Ưu đãi dành cho khách hàng mua sắm tại Tam Phone.
+                    </p>
+                </div>
+            </section>
+
+            <!-- GIỎ HÀNG -->
+            <section id="giohang" class="max-w-7xl mx-auto px-6 py-12">
+
+                <h2 class="text-3xl font-bold mb-8">🛒 Giỏ hàng của bạn</h2>
+
+                <div class="bg-white rounded-xl shadow-md p-6">
+
+                    <!-- Hiện khi giỏ hàng trống -->
+                    <p v-if="cart.length === 0" class="text-gray-500">
+                        Giỏ hàng trống. Hãy chọn sản phẩm bạn yêu thích nhé!
+                    </p>
+
+                    <!-- Hiện danh sách khi có sản phẩm -->
+                    <div v-else>
+
+                        <div
+                            v-for="(sanPham, index) in cart"
+                            :key="index"
+                            class="cart-item flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b py-4">
+
+                            <div>
+                                <h3 class="font-bold">{{ sanPham.ten }}</h3>
+                                <p class="text-gray-500 text-sm">
+                                    {{ dinhDangTien(sanPham.gia) }}
+                                </p>
+                            </div>
+
+                            <button
+                                @click="xoaKhoiGio(index)"
+                                class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg">
+                                Xóa
+                            </button>
+
+                        </div>
+
+                        <div class="text-right mt-6">
+                            <p class="text-gray-500 mb-2">
+                                Số lượng: {{ cartCount }} sản phẩm
+                            </p>
+
+                            <p class="text-2xl font-bold text-blue-700">
+                                Tổng tiền: {{ dinhDangTien(tongTien) }}
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer id="lienhe" class="bg-gray-900 text-gray-200 px-6 py-10">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-3">Tam Phone</h3>
+                    <p class="text-sm">
+                        Phụ kiện tiện ích cho điện thoại của bạn.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-white mb-3">Liên hệ</h3>
+                    <p class="text-sm mb-2">Địa chỉ: TP. Hồ Chí Minh</p>
+                    <p class="text-sm mb-2">Điện thoại: 0900 123 456</p>
+                    <p class="text-sm">Email: tamphone@example.com</p>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-white mb-3">Chính sách</h3>
+                    <p class="text-sm mb-2">Chính sách đổi trả</p>
+                    <p class="text-sm mb-2">Chính sách bảo hành</p>
+                    <p class="text-sm">Hướng dẫn mua hàng</p>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-white mb-3">Mạng xã hội</h3>
+                    <p class="text-sm mb-2">Facebook: Tam Phone</p>
+                    <p class="text-sm mb-2">Instagram: @tamphone</p>
+                    <p class="text-sm">TikTok: @tamphone</p>
+                </div>
+
+            </div>
+
+            <div class="max-w-7xl mx-auto border-t border-gray-700 mt-8 pt-5 text-center text-sm">
+                © 2026 Tam Phone. All rights reserved.
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Vue phải được nhúng trước app.js -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="../js/app.js"></script>
+
+</body>
+</html>

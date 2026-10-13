@@ -1,0 +1,66 @@
+
+/* 1. Cài đặt cuộn trang mượt */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 2. Tùy chỉnh giao diện chung */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* 3. Hiệu ứng khi rê chuột vào các thẻ bánh */
+.cake-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cake-card:hover {
+    transform: translateY(-5px);
+}
+
+/* 4. Tùy chỉnh hình ảnh trong các thẻ bánh */
+.cake-card img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* 5. Tùy chỉnh ô nhập liệu */
+input,
+select,
+textarea {
+    box-sizing: border-box;
+}
+
+/* 6. Tùy chỉnh nút lên đầu trang */
+#backToTop {
+    cursor: pointer;
+    border: none;
+    font-size: 24px;
+    transition: background-color 0.3s ease;
+}
+
+/* 7. Bảo đảm menu điện thoại hiển thị theo chiều dọc */
+#mobileMenu a {
+    display: block;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+/* 8. Hiệu ứng xuất hiện nhẹ cho các phần nội dung */
+.cake-card {
+    animation: hienThi 0.6s ease;
+}
+
+@keyframes hienThi {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
