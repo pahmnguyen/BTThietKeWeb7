@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 11 - Upload File</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <h2>Upload File</h2>
+    <input type="file" id="fileUpload">
+    <p>Tên file: <span id="tenFile"></span></p>
+    <p>Phần mở rộng: <span id="duoiFile"></span></p>
+    <script>
+        $(document).ready(function() {
+            $("#fileUpload").change(function() {
+                var file = this.files[0];
+
+                if (file) {
+                    var ten = file.name;
+                    var viTri = ten.lastIndexOf(".");
+                    var moRong = "";
+
+                    if (viTri != -1) {
+                        moRong = ten.substring(viTri + 1);
+                    }
+
+                    $("#tenFile").text(ten);
+                    $("#duoiFile").text(moRong);
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

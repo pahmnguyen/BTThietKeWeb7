@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 16 - Thêm và xóa hàng</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Quản lý thông tin</h2>
+
+        <div class="form">
+            <label>Name:</label>
+            <input type="text" id="name" placeholder="Nhập họ tên">
+
+            <label>Email:</label>
+            <input type="text" id="email" placeholder="Nhập email">
+
+            <label>Birthdate:</label>
+            <input type="date" id="birthdate">
+
+            <button id="addRow">Add Row</button>
+            <button id="deleteRow">Delete Row</button>
+
+            <p id="thongBao"></p>
+        </div>
+
+        <table id="myTable">
+            <thead>
+                <tr>
+                    <th>Chọn</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Birthdate</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td><input type="checkbox" class="chonHang"></td>
+                    <td>Nguyen Van A</td>
+                    <td>a@gmail.com</td>
+                    <td>2005-01-15</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
